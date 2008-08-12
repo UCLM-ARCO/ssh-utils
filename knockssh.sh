@@ -5,13 +5,8 @@ HOST=example.org
 PORT=22
 USER=root
 
-read -p "Enter knock code: " seq
+read -sp "Enter knock code: " seq
+echo 
 
-ports=''
-for i in $seq; do
-    ports="$ports ${i}000"
-done
-
-
-knock $HOST $ports
+knock $HOST $seq
 ssh -p $PORT $USER@$HOST
